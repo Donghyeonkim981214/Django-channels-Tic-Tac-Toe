@@ -3,6 +3,10 @@ from channels.generic.websocket import AsyncJsonWebsocketConsumer
 
 class TicTacToeConsumer(AsyncJsonWebsocketConsumer):
     async def connect(self):
+        #scope 확인
+        print("self.scope")
+        print(self.scope)
+        print("--------")
         self.room_name = self.scope['url_route']['kwargs']['room_code']
         self.room_group_name = 'room_%s' % self.room_name
         
